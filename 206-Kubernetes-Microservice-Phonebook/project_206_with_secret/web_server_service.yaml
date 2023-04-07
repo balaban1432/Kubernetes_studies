@@ -3,15 +3,14 @@ kind: Service
 metadata:
   name: webserver-service
   namespace: default
-  labels:
-    team: devops
 spec:
   selector:
-    app:  web-server
+    app: web-server
     tier: backend
   type: NodePort
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-      nodePort: 30001
+  - name: webserver
+    protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30001
