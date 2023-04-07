@@ -7,3 +7,5 @@ MYSQL_ROOT_PASSWORD=R123456b="UjEyMzQ1NmI="
 
 echo -n 'RamazanBALABAN_1' | base64
 echo -n 'R123456b' | base64
+
+/var/lib/mysql
