@@ -1,22 +1,20 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: apps/v1 
+kind: Deployment 
 metadata:
   name: web-flask-deploy
-  labels:
-    app: web-flask
   namespace: demo
 spec:
   replicas: 3
-  selector:
+  selector:  
     matchLabels:
       app: web-flask
-  minReadySeconds: 10
+  minReadySeconds: 10 
   strategy:
-    type: RollingUpdate
+    type: RollingUpdate 
     rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
-  template:
+      maxUnavailable: 1 
+      maxSurge: 1 
+  template: 
     metadata:
       labels:
         app: web-flask
