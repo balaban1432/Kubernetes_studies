@@ -5,3 +5,5 @@ metadata:
 data:
   config: |
     greeting: Buongiorno
+    name: ramazan
+    surname: balaban
