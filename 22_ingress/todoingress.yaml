@@ -4,8 +4,7 @@ metadata:
   name: todoingress
 spec:
   rules:
-    - host: todoapp.com
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
