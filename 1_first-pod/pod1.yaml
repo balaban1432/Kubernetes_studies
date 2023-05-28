@@ -4,9 +4,11 @@ metadata:
   name: firstpod
   labels:
     app: frontend
+    team: developer
 spec:
   containers:
     - name: ng
       image: nginx:latest
       ports:
         - containerPort: 80
+        
