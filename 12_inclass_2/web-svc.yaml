@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service   
 metadata:
-  namespace: demo
   name: web-flask-svc
   labels:
     app: web-flask
+  namespace: demo  
 spec:
   type: NodePort  
   ports:

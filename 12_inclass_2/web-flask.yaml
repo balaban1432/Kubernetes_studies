@@ -4,7 +4,7 @@ metadata:
   name: web-flask-deploy
   namespace: demo
 spec:
-  replicas: 3
+  replicas: 3 
   selector:  
     matchLabels:
       app: web-flask
