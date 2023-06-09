@@ -3,7 +3,7 @@ entries:
   demogitrepo:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-06-09T15:58:45.1013604+03:00"
+    created: "2023-06-09T16:04:52.2866779+03:00"
     description: A Helm chart for Kubernetes
     digest: 5ee5ca1df8a91413c98c3a08274ce9752925744001004bcd1a32460bee16698c
     name: demogitrepo
@@ -17,7 +17,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.0.33
-    created: "2023-06-09T15:58:45.1140283+03:00"
+    created: "2023-06-09T16:04:52.2908391+03:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -45,4 +45,15 @@ entries:
     urls:
     - mysql-9.10.2.tgz
     version: 9.10.2
-generated: "2023-06-09T15:58:45.0959893+03:00"
+  second-chart:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-06-09T16:04:52.2917814+03:00"
+    description: A Helm chart for Kubernetes
+    digest: 912e68f7c47c10ff9a3b2c26fd966132e850907b8db781343540795c339352f2
+    name: second-chart
+    type: application
+    urls:
+    - second-chart-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-06-09T16:04:52.2854512+03:00"
