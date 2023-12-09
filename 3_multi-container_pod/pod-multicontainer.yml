@@ -14,7 +14,7 @@ spec:
     - name: sidecarcontainer
       image: busybox
       command: ["/bin/sh"]
-      args: ["-c", "while true; do wget -O /var/log/index.html https://raw.githubusercontent.com/ozgurozturknet/hello-world/master/index.html; sleep 15; done"]
+      args: ["-c", "while true; do wget -O /var/log/index.html https://raw.githubusercontent.com/balaban1432/k8s/main/index.html; sleep 15; done"]
       volumeMounts:
         - mountPath: /var/log
           name: sharedvolume
