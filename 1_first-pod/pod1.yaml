@@ -3,12 +3,11 @@ kind: Pod
 metadata:
   name: firstpod
   labels:
-    app: frontend
+    app: "frontend"
     team: developer
 spec:
   containers:
-    - name: ng
-      image: nginx:latest
-      ports:
-        - containerPort: 80
-        
+  - name: ng
+    image: "nginx:latest"
+    ports:
+    - containerPort:  80
