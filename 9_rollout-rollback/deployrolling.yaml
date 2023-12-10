@@ -4,6 +4,8 @@ metadata:
   name: rolldeployment
   labels:
     team: development
+  annotations:
+    kubernetes.io/change-cause: "kubectl edit --record deployment rolldeployment" 
 spec:
   replicas: 10
   selector:
@@ -21,6 +23,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx
+        image: httpd
         ports:
         - containerPort: 80
