@@ -7,15 +7,8 @@ spec:
   selector:
     app: MYAPP
   type: ClusterIP
-  sessionAffinity: None
-  sessionAffinityConfig:
-    clientIP:
-      timeoutSeconds: 10800
   ports:
   - name: MYAPP
     protocol: TCP
-    port: 
-    targetPort: 
-    # If you set the `spec.type` field to `NodePort` and you want a specific port number,
-    # you can specify a value in the `spec.ports[*].nodePort` field.
-    nodePort: 
+    port: 3000
+    targetPort: 5000 
