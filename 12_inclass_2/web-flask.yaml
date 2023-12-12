@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-flask-deploy
+spec:
+  selector:
+    matchLabels:
+      app: web-flask
+  replicas: 3
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: web-flask
+    spec:
+      containers:
+      - name: web-flask-pod
+        image: clarusway/cw_web_flask1
+        ports:
+        - containerPort: 5000
