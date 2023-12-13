@@ -1,5 +1,5 @@
-apiVersion: v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   annotations:
     kompose.cmd: kompose convert -f docker-compose.yml -o petclinic_chart/templates
@@ -7,14 +7,36 @@ metadata:
     kompose.version: 1.28.0 (c4137012e)
   creationTimestamp: null
   labels:
-    io.kompose.service: config-server
-  name: config-server
+    io.kompose.service: hystrix-dashboard
+  name: hystrix-dashboard
 spec:
-  ports:
-    - name: "8888"
-      port: 8888
-      targetPort: 8888
+  replicas: 1
   selector:
-    io.kompose.service: config-server
-status:
-  loadBalancer: {}
+    matchLabels:
+      io.kompose.service: hystrix-dashboard
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o petclinic_chart/templates
+        kompose.image-pull-secret: regcred
+        kompose.version: 1.28.0 (c4137012e)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/k8s-default: "true"
+        io.kompose.service: hystrix-dashboard
+    spec:
+      containers:
+        - image: '{{ .Values.IMAGE_TAG_HYSTRIX_DASHBOARD }}'
+          name: hystrix-dashboard
+          ports:
+            - containerPort: 7979
+          resources: {}
+      initContainers:
+        - name: init-discovery-server
+          image: busybox
+          command: ['sh', '-c', 'until nc -z discovery-server:8761; do echo waiting for discovery-server; sleep 2; done;']          
+      imagePullSecrets:
+        - name: regcred
+      restartPolicy: Always
+status: {}
