@@ -1,15 +1,29 @@
-apiVersion: v1
-kind: Service
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: MYAPP
-  namespace: default
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml -o petclinic_chart/templates
+    kompose.image-pull-secret: regcred
+    kompose.service.expose: '{{ .Values.DNS_NAME }}'
+    kompose.service.nodeport.port: "30001"
+    kompose.service.type: nodeport
+    kompose.version: 1.28.0 (c4137012e)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: api-gateway
+  name: api-gateway
 spec:
-  selector:
-    app: MYAPP
-  type: NodePort
-  ports:
-  - name: MYAPP
-    protocol: TCP
-    port: 3000
-    targetPort: 5000 
-    nodePort: 30007
+  ingressClassName: nginx
+  rules:
+    - host: '{{ .Values.DNS_NAME }}'
+      http:
+        paths:
+          - backend:
+              service:
+                name: api-gateway
+                port:
+                  number: 8080
+            path: /
+            pathType: Prefix
+status:
+  loadBalancer: {}
