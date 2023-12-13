@@ -23,3 +23,5 @@ spec:
         image: 828895145536.dkr.ecr.us-east-1.amazonaws.com/microservices-project:api-gateway-b7
         ports:
         - containerPort: 8080
+      imagePullSecrets:
+      - name: regcred         
