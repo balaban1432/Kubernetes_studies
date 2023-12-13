@@ -3,40 +3,32 @@ kind: Deployment
 metadata:
   annotations:
     kompose.cmd: kompose convert -f docker-compose.yml -o petclinic_chart/templates
-    kompose.image-pull-secret: regcred
     kompose.version: 1.28.0 (c4137012e)
   creationTimestamp: null
   labels:
-    io.kompose.service: hystrix-dashboard
-  name: hystrix-dashboard
+    io.kompose.service: tracing-server
+  name: tracing-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: hystrix-dashboard
+      io.kompose.service: tracing-server
   strategy: {}
   template:
     metadata:
       annotations:
         kompose.cmd: kompose convert -f docker-compose.yml -o petclinic_chart/templates
-        kompose.image-pull-secret: regcred
         kompose.version: 1.28.0 (c4137012e)
       creationTimestamp: null
       labels:
         io.kompose.network/k8s-default: "true"
-        io.kompose.service: hystrix-dashboard
+        io.kompose.service: tracing-server
     spec:
       containers:
-        - image: '{{ .Values.IMAGE_TAG_HYSTRIX_DASHBOARD }}'
-          name: hystrix-dashboard
+        - image: openzipkin/zipkin
+          name: tracing-server
           ports:
-            - containerPort: 7979
+            - containerPort: 9411
           resources: {}
-      initContainers:
-        - name: init-discovery-server
-          image: busybox
-          command: ['sh', '-c', 'until nc -z discovery-server:8761; do echo waiting for discovery-server; sleep 2; done;']          
-      imagePullSecrets:
-        - name: regcred
       restartPolicy: Always
 status: {}
