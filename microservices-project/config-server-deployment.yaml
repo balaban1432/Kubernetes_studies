@@ -16,7 +16,7 @@ spec:
     spec:   
       containers:
       - name: config-server
-        image: 8828895145536.dkr.ecr.us-east-1.amazonaws.com/microservices-project:config-server-b7
+        image: '828895145536.dkr.ecr.us-east-1.amazonaws.com/microservices-project:config-server-b7'
         ports:
         - containerPort: 8888
       imagePullSecrets:

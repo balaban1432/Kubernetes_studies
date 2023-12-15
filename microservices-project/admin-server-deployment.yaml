@@ -17,10 +17,10 @@ spec:
       initContainers:
       - name: init-discovery-server
         image: busybox
-        command: ["-c", "until nc -z discovery-server:8761; do echo waiting for discovery-server; sleep 5; done"]   
+        command: ['sh', '-c', 'until nc -z discovery-server:8761; do echo waiting for discovery-server; sleep 2; done;']  
       containers:
       - name: admin-server
-        image: 828895145536.dkr.ecr.us-east-1.amazonaws.com/microservices-project:admin-server-b7
+        image: '828895145536.dkr.ecr.us-east-1.amazonaws.com/microservices-project:admin-server-b7'
         ports:
         - containerPort: 9090
       imagePullSecrets:
