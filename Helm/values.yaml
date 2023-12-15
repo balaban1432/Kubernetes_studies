@@ -1,0 +1,5 @@
+mariadb.auth.rootPassword: R123456b
+mariadb.auth.password: admin
+mariadb.auth.database: ramazanBAL_1
+wordpressPassword: Rb123456
+username: database
