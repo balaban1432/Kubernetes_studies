@@ -1,3 +1,14 @@
-kubectl create secret generic regcred \
-    --from-file=.dockerconfigjson=/c/Users/Dell/.docker/config.json \
-    --type=kubernetes.io/dockerconfigjson
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: MYAPP
+  namespace: default
+  labels:
+    app: MYAPP
+spec:
+  storageClassName: rook-ceph-block
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi

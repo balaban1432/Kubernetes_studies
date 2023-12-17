@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: clarus-pv-claim
 spec:
-  storageClassName: manual
+  storageClassName: standart
   accessModes:
     - ReadWriteOnce
   resources:
