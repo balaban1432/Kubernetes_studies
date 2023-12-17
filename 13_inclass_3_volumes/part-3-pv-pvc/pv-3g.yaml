@@ -12,3 +12,4 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/home/ubuntu/pv-data"
+  
