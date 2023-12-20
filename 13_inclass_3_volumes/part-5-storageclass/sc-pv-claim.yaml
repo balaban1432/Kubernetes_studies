@@ -1,14 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: MYAPP
-  namespace: default
-  labels:
-    app: MYAPP
+  name: sc-pv-claim
 spec:
-  storageClassName: rook-ceph-block
+  storageClassName: standard
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 2Gi    
+      storage: 3Gi
