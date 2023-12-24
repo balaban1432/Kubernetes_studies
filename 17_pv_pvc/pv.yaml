@@ -5,6 +5,7 @@ metadata:
    labels:
      app: mysql
 spec:
+  storageClassName: standard
   capacity:
     storage: 5Gi
   accessModes:
