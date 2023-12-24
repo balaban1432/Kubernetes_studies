@@ -20,7 +20,7 @@ spec:
     - name: dircreate-vol
       mountPath: /cache
     - name: file-vol
-      mountPath: /cache/config.json       
+      mountPath: /cache/config.json
   volumes:
   - name: directory-vol
     hostPath:
