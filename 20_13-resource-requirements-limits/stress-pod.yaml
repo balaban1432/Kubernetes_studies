@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cpu-limit
+  namespace: resources-limits
+spec:
+  containers:
+  - name: cpu-limit
+    image: vish/stress
+    resources:
+      requests:
+        cpu: "0.5"
+    args:
+    - -cpus
+    - "2"
