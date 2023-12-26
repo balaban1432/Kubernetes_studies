@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: quota-mem-cpu
+  name: quota-mem-cpu-2
   namespace: resources-limits
 spec:
   containers:
   - image: nginx
     imagePullPolicy: Always
-    name: quota-mem-cpu
+    name: quota-mem-cpu-2
     resources:
       limits:
-        memory: "800Mi"
+        memory: "1Gi"
         cpu: "800m"
       requests:
-        memory: "600Mi"
+        memory: "700Mi"
         cpu: "400m"
