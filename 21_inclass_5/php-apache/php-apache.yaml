@@ -37,4 +37,4 @@ spec:
     nodePort: 30002
   selector:
     run: php-apache 
-  type: NodePort
+  type: NodePort	
