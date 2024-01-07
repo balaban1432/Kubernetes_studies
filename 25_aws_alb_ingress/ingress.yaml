@@ -14,10 +14,15 @@ metadata:
     alb.ingress.kubernetes.io/success-codes: '200'
     alb.ingress.kubernetes.io/healthy-threshold-count: '2'
     alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
+    # To use certificate add annotations below.
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:828895145536:certificate/5d53544a-aeea-422f-9790-b60691b3b642
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
 
 spec:
   rules:
-    - http:
+    - host: www.deryabalaban.online
+      http:
         paths:
           - path: /account
             pathType: Prefix
