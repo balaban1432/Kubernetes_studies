@@ -12,7 +12,7 @@ spec:
         nodeSelectorTerms:
         - matchExpressions:
           - key: app
-            operator: In #In, NotIn, Exists, DoesNotExist
+            operator: In  #In, NotIn, Exists, DoesNotExist
             values:
             - blue
 ---
