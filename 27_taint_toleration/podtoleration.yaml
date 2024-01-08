@@ -27,5 +27,4 @@ spec:
   tolerations:
   - key: "platform"
     operator: "Exists"
-    effect: "NoSchedule"
-    
+    effect: "NoSchedule"   
