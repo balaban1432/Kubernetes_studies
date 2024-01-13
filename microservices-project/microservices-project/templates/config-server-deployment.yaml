@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-server
+  labels:
+    app: config-server
+spec:
+  selector:
+    matchLabels:
+      app: config-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: config-server
+    spec:
+      containers:
+      - name: config-server
+        image: {{ .Values.IMAGE_TAG_CONFIG_SERVER }}
+        ports:
+        - containerPort: 8888
+      imagePullSecrets:
+      - name: regcred
