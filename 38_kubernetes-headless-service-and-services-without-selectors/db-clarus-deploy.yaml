@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clarus-db-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clarus-db
+  template:
+    metadata:
+      labels:
+        app: clarus-db
+    spec:
+      containers:
+      - name: clarus-db
+        image: mysql:5.7
+        ports:
+        - containerPort: 3306
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: R1234r
+          - name: MYSQL_DATABASE
+            value: todo_db
+          - name: MYSQL_USER
+            value: clarusway
+          - name: MYSQL_PASSWORD
+            value: Clarusway_1

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-api-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-api
+  template:
+    metadata:
+      labels:
+        app: todo-api
+    spec:
+      containers:
+      - name: todo-api
+        image: clarusways/todoapi-pod
+        ports:
+        - containerPort: 80
+        env:
+          - name: MYSQL_DATABASE_HOST
+            value: clarus-db-service
+          - name: MYSQL_DATABASE
+            value: todo_db
+          - name: MYSQL_USER
+            value: clarusway
+          - name: MYSQL_PASSWORD
+            value: Clarusway_1
