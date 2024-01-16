@@ -1,13 +1,16 @@
-apiVersion: batch/v1
-kind: Job
+apiVersion: batch/v1beta1
+kind: CronJob
 metadata:
-  name: pi
+  name: hello
+  namespace: default
 spec:
-  template:
+  schedule: "*/1 * * * *"
+  jobTemplate:
     spec:
-      containers:
-      - name: pi
-        image: perl:5.34.0
-        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
-      restartPolicy: Never
-  backoffLimit: 4
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox
+            args: ['/bin/sh', '-c', 'date; echo Hello from the Kubernetes cluster']
+          restartPolicy: OnFailure
