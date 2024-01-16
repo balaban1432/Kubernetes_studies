@@ -1,30 +1,13 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: MYAPP
-  namespace: default
-  labels:
-    app: MYAPP
+  name: pi
 spec:
   template:
-    metadata:
-      name: MYAPP
-      labels:
-        app: MYAPP
     spec:
       containers:
-      - name: MYAPP
-        image: python:3.7.6-alpine3.10
-        command: ['sh', '-c', 'python3 manage.py makemigrations && python3 manage.py migrate']
-        env:
-        - name: ENV_NAME
-          value: ENV_VALUE
-        volumeMounts:
-        - name: localtime
-          mountPath: /etc/localtime
-      volumes:
-      - name: localtime
-        hostPath:
-          path: /usr/share/zoneinfo/Asia/Shanghai
-      restartPolicy: OnFailure
-      dnsPolicy: ClusterFirst
+      - name: pi
+        image: perl:5.34.0
+        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+      restartPolicy: Never
+  backoffLimit: 4
