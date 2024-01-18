@@ -5,9 +5,16 @@
 
 **Key ve CSR oluşturma**
 ```
-$ openssl genrsa -out ozgurozturk.key 2048 
+$ openssl genrsa -out balaban.key 2048  # 2048 --> dosya boyutu
 
-$ openssl req -new -key ozgurozturk.key -out ozgurozturk.csr -subj "/CN=ozgur@ozgurozturk.net/O=DevTeam"
+$ openssl req -new -key balaban.key -out balaban.csr -subj "/CN=balaban1432@gmail.com/O=DevTeam"
+
+req   --> CSR oluşturma isteği
+-new  --> yeni bir CSR olsun diyorum
+-key  --> bu key i kullan diyorum
+-out  --> sonucu bu dosyaya yaz diyorum
+-subj --> CN ile belirtilen değer kullanıcı adı olacak, O ile belirlenen değerler de bu kullanıcının hangi gruplara üye olacağını belirler.
+
 ```
 
 **CertificateSigningRequest oluşturma**
@@ -17,11 +24,11 @@ $ cat <<EOF | kubectl apply -f -
 apiVersion: certificates.k8s.io/v1
 kind: CertificateSigningRequest
 metadata:
-  name: ozgurozturk
+  name: balaban
 spec:
   groups:
   - system:authenticated
-  request: $(cat ozgurozturk.csr | base64 | tr -d "\n")
+  request: $(cat balaban.csr | base64 | tr -d "\n")
   signerName: kubernetes.io/kube-apiserver-client
   usages:
   - client auth
@@ -33,17 +40,23 @@ EOF
 ```
 $ kubectl get csr
 
-$ kubectl certificate approve ozgurozturk
+$ kubectl certificate approve balaban
 
-$ kubectl get csr ozgurozturk -o jsonpath='{.status.certificate}' | base64 -d >> ozgurozturk.crt 
+$ kubectl get csr balaban -o yaml
+
+$ kubectl get csr balaban -o jsonpath='{.status.certificate}' | base64 -d >> balaban.crt 
 ```
 
 **kubectl config ayarları**
 
 ```
-$ kubectl config set-credentials ozgur@ozgurozturk.net --client-certificate=ozgurozturk.crt --client-key=ozgurozturk.key
+$ kubectl config set-credentials balaban1432@gmail.com --client-certificate=balaban.crt --client-key=balaban.key
 
-$ kubectl config set-context ozgurozturk-context --cluster=minikube --user=ozgur@ozgurozturk.net
+balaban1432@gmail.com --> req ile oluşturduğum kullanıcı adı
 
-$ kubectl config use-context ozgurozturk-context
+$ kubectl config set-context balaban-context --cluster=minikube --user=balaban1432@gmail.com
+
+balaban-context --> oluşturmak istediğim context adı
+
+$ kubectl config use-context balaban-context
 ```
