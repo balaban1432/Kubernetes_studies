@@ -1,16 +1,18 @@
-apiVersion: batch/v1beta1
-kind: CronJob
+apiVersion: rbac.authorization.k8s.io/v1   
+kind: Role
 metadata:
-  name: hello
+  creationTimestamp: "2024-01-18T16:48:34Z"
+  name: foo
   namespace: default
-spec:
-  schedule: "*/1 * * * *"
-  jobTemplate:
-    spec:
-      template:
-        spec:
-          containers:
-          - name: hello
-            image: busybox
-            args: ['/bin/sh', '-c', 'date; echo Hello from the Kubernetes cluster']
-          restartPolicy: OnFailure
+  resourceVersion: "393"
+  uid: f0877e1e-4e32-4cf2-a9dc-58cf5ac58085
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - pods/status
+  verbs:
+  - get
+  - list
+  - watch
