@@ -1,18 +1,4 @@
-apiVersion: rbac.authorization.k8s.io/v1   
-kind: Role
+apiVersion: v1
+kind: ServiceAccount
 metadata:
-  creationTimestamp: "2024-01-18T16:48:34Z"
-  name: foo
-  namespace: default
-  resourceVersion: "393"
-  uid: f0877e1e-4e32-4cf2-a9dc-58cf5ac58085
-rules:
-- apiGroups:
-  - ""
-  resources:
-  - pods
-  - pods/status
-  verbs:
-  - get
-  - list
-  - watch
+  name:  name
