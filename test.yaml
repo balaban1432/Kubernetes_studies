@@ -1,4 +1,14 @@
 apiVersion: v1
-kind: ServiceAccount
+kind: PersistentVolumeClaim
 metadata:
-  name:  name
+  name: MYAPP
+  namespace: default
+  labels:
+    app: MYAPP
+spec:
+  storageClassName: rook-ceph-block
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
