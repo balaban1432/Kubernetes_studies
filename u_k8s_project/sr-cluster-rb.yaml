@@ -1,11 +1,11 @@
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+# This cluster role binding allows anyone in the "manager" group to read secrets in any namespace.
+kind: ClusterRoleBinding
 metadata:
-  name: jr-production-rb
-  namespace: production
+  name: sr-cluster-rb
 subjects:
 - kind: Group
-  name: junior
+  name: senior # Name is case sensitive
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
