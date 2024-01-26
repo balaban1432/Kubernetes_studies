@@ -25,6 +25,7 @@ spec:
     ports:
     - protocol: TCP
       port: 80
+      # endport: 100  # bu şekilde port aralığı da verebiliriz.
   egress:
   - to:
     - ipBlock:
