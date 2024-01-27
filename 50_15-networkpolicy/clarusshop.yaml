@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: clarusshop
+        role: frontend
     spec:
       containers:
       - name: clarusshop
