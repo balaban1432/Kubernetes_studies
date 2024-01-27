@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: clarusdb-deployment
+  namespace: clarusdb-ns 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      db: clarusdb
+  template:
+    metadata:
+      labels:
+        db: clarusdb
+    spec:
+      containers:
+      - name: clarusdb
+        image: clarusway/clarusdb:v1
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service   
+metadata:
+  name: clarusdb-svc
+  namespace: clarusdb-ns
+spec:
+  type: ClusterIP  
+  ports:
+  - port: 80 
+    targetPort: 80
+  selector:
+    db: clarusdb
