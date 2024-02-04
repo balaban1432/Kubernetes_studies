@@ -10,3 +10,4 @@ spec:
     nodePort: 30001
   selector:
     app: clarusshop
+    version: v2
