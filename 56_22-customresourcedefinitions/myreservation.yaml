@@ -1,0 +1,8 @@
+apiVersion: "clarusway.com/v1"
+kind: BookReservation
+metadata:
+  name: hotel-reservation
+spec:
+  hotel: "hotelclarus"
+  date: "01.07.2023-31.07.2023"
+  count: 40
