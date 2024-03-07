@@ -1,12 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
+  creationTimestamp: null
   labels:
-    app: myapp
-    location: NA
-    type: frontend  
-  name: myapp-pod
+    run: ng
+  name: ng
 spec:
   containers:
   - image: nginx
     name: ng
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
