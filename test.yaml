@@ -1,15 +1,16 @@
-apiVersion: v1
-kind: Pod
+apiVersion: batch/v1
+kind: CronJob
 metadata:
-  creationTimestamp: null
-  labels:
-    run: ng
-  name: ng
+  name: hello
 spec:
-  containers:
-  - image: nginx
-    name: ng
-    resources: {}
-  dnsPolicy: ClusterFirst
-  restartPolicy: Always
-status: {}
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      backoffLimit: 6
+      activeDeadlineSeconds: 100    
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox:1.28
+          restartPolicy: OnFailure
