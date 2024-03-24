@@ -1,16 +1,16 @@
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: hello
-spec:
-  schedule: "* * * * *"
-  jobTemplate:
-    spec:
-      backoffLimit: 6
-      activeDeadlineSeconds: 100    
-      template:
-        spec:
-          containers:
-          - name: hello
-            image: busybox:1.28
-          restartPolicy: OnFailure
+AWSTemplateFormatVersion: 2010-09-09
+Description: |
+  
+Parameters:
+  
+Metadata:
+  
+Mappings:
+  
+Conditions:
+  
+Resources:
+  
+Transform:
+  
+Outputs:
