@@ -1,4 +1,5 @@
-apiVersion: apps/v1  # dry-run -o yaml > deploy.yaml olarak oluşturdum.
+# dry-run -o yaml > deploy.yaml olarak oluşturdum.
+apiVersion: apps/v1  
 kind: Deployment
 metadata:
   creationTimestamp: null

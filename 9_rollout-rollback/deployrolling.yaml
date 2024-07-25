@@ -23,6 +23,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: httpd
+        image: nginx
         ports:
         - containerPort: 80
