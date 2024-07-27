@@ -3,9 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: sc-pv-claim
 spec:
-  storageClassName: standard
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
       storage: 3Gi
+  storageClassName: local-path

@@ -5,11 +5,10 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: standart
+  storageClassName: manual
   capacity:
     storage: 3Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
     path: "/home/ubuntu/pv-data"
-  

@@ -5,7 +5,7 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: standart
+  storageClassName: manual
   capacity:
     storage: 6Gi
   accessModes:
