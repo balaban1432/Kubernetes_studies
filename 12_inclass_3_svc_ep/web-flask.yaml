@@ -3,8 +3,8 @@ kind: Deployment
 metadata:
   name: web-flask-deploy
   labels:
-    app: web-flask
-  namespace: demo
+    env: dev
+  namespace: demo  
 spec:
   replicas: 3
   selector:
