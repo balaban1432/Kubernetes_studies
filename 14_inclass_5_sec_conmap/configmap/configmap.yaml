@@ -1,9 +1,8 @@
-kind: ConfigMap
 apiVersion: v1
+kind: ConfigMap
 metadata:
   name: demo-config
 data:
-  config: |
-    greeting: Buongiorno
-    name: ramazan
-    surname: balaban
+  GREETING: Merhaba
+  VAR1: value1
+  var2: value2

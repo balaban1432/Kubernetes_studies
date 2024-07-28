@@ -32,7 +32,7 @@ spec:
             path: index.html
       - name: secret-volume
         secret:
-          secretName: mysecret
+          secretName: nginx-secret
           items:
           - key: password
             path: userpassword.txt

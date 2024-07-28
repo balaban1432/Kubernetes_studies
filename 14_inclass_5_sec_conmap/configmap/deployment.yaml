@@ -14,17 +14,9 @@ spec:
     spec:
       containers:
         - name:  demo
-          image: clarusway/demo:hello-config-file
+          image: clarusway/demo:hello-config-env
           ports:
             - containerPort: 8888
-          volumeMounts:
-          - mountPath: /config/
-            name: demo-config-volume
-            readOnly: true
-      volumes:
-      - name: demo-config-volume
-        configMap:
-          name: demo-config
-          items:
-          - key: config
-            path: demo.yaml
+          envFrom:
+          - configMapRef:
+              name: demo-config
