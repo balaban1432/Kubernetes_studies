@@ -36,3 +36,6 @@ spec:
     - name: config-vol
       configMap:
         name: myconfigmap
+        items:   
+        - key: site.settings
+          path: site.settings
