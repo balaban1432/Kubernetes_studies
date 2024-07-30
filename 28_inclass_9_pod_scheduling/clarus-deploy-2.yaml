@@ -21,6 +21,5 @@ spec:
         - containerPort: 80
       tolerations:
       - key: "clarus"
-        operator: "Equal"
-        value: "way"
-        effect: "NoSchedule"     
+        operator: "Exists"
+        effect: "NoSchedule"  

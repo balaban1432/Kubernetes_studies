@@ -29,10 +29,4 @@ spec:
                 operator: In
                 values:
                 - large
-          - weight: 5                                        # This field is changed.         
-            preference:                                      # This field is changed.   
-              matchExpressions:
-              - key: size
-                operator: In
-                values:
-                - medium  
+                - medium
