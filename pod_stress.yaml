@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: memory-limit
+spec:
+  containers:
+  - name: memory-limit
+    image: polinux/stress
+    resources:
+      limits:
+        memory: "200Mi"
+      requests:
+        memory: "100Mi"
+    command: ["stress"]
+    args: ["--vm", "1", "--vm-bytes", "150M", "--vm-hang", "1"]
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: requestlimit
+  name: requestlimit
+spec:
+  containers:
+  - name: requestlimit
+    image: ozgurozturknet/stress  # 30 s sonra sistemden 512M memory talebinde bulunur.
+    resources:
+      requests:
+        memory: "64M"
+        cpu: "250m"
+      limits:
+        memory: "256M"
+        cpu: "0.5"
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cpu-limit
+spec:
+  containers:
+  - name: cpu-limit
+    image: vish/stress
+    resources:
+      limits:
+        cpu: "1"
+      requests:
+        cpu: "0.5"
+    args:
+    - -cpus
+    - "2"

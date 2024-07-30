@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-ratio
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: Always
+    name: default-cpu
+    resources:
+      requests:
+        memory: "200m"
+      limits:
+        memory: "400"
