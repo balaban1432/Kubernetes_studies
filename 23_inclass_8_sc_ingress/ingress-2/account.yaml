@@ -1,0 +1,19 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata:
+  name: account-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: account
+  template: 
+    metadata:
+      labels:
+        app: account
+    spec:
+      containers:
+      - name: account-pod
+        image: clarusway/clarusshop:account
+        ports:
+        - containerPort: 80

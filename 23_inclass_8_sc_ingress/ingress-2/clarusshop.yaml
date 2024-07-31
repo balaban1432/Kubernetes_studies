@@ -1,0 +1,19 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata:
+  name: clarusshop-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: clarusshop 
+  template: 
+    metadata:
+      labels:
+        app: clarusshop
+    spec:
+      containers:
+      - name: clarusshop-pod
+        image: clarusway/clarusshop
+        ports:
+        - containerPort: 80

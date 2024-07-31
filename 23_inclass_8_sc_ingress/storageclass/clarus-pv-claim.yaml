@@ -3,9 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: clarus-pv-claim
 spec:
-  storageClassName: aws-standart
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
-      storage: 3Gi
+      storage: 1Gi
+  storageClassName: myaws-sc
