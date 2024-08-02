@@ -1,59 +1,14 @@
 apiVersion: v1
 entries:
-  demogitrepo:
+  clarus-chart:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-06-09T16:04:52.2866779+03:00"
+    created: "2024-08-02T21:32:43.285757+03:00"
     description: A Helm chart for Kubernetes
-    digest: 5ee5ca1df8a91413c98c3a08274ce9752925744001004bcd1a32460bee16698c
-    name: demogitrepo
+    digest: a84cd9f10c4c8c5aceaef9a379f72dab40f52d3ee34e841d41e7868b14908ac3
+    name: clarus-chart
     type: application
     urls:
-    - demogitrepo-0.1.0.tgz
-    version: 0.1.0
-  mysql:
-  - annotations:
-      category: Database
-      licenses: Apache-2.0
-    apiVersion: v2
-    appVersion: 8.0.33
-    created: "2023-06-09T16:04:52.2908391+03:00"
-    dependencies:
-    - name: common
-      repository: oci://registry-1.docker.io/bitnamicharts
-      tags:
-      - bitnami-common
-      version: 2.x.x
-    description: MySQL is a fast, reliable, scalable, and easy to use open source
-      relational database system. Designed to handle mission-critical, heavy-load
-      production applications.
-    digest: 0dd4a143ad2d9de5f7d3fae2a782c82c68ad5dcc41ae970dd878357db989751c
-    home: https://bitnami.com
-    icon: https://bitnami.com/assets/stacks/mysql/img/mysql-stack-220x234.png
-    keywords:
-    - mysql
-    - database
-    - sql
-    - cluster
-    - high availability
-    maintainers:
-    - name: VMware, Inc.
-      url: https://github.com/bitnami/charts
-    name: mysql
-    sources:
-    - https://github.com/bitnami/charts/tree/main/bitnami/mysql
-    urls:
-    - mysql-9.10.2.tgz
-    version: 9.10.2
-  second-chart:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-06-09T16:04:52.2917814+03:00"
-    description: A Helm chart for Kubernetes
-    digest: 912e68f7c47c10ff9a3b2c26fd966132e850907b8db781343540795c339352f2
-    name: second-chart
-    type: application
-    urls:
-    - second-chart-0.1.0.tgz
-    version: 0.1.0
-generated: "2023-06-09T16:04:52.2854512+03:00"
+    - clarus-chart-0.1.1.tgz
+    version: 0.1.1
+generated: "2024-08-02T21:32:43.2831863+03:00"

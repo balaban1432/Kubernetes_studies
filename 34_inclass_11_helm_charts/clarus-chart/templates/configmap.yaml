@@ -5,5 +5,5 @@ metadata:
 data:
   myvalue: "clarus-chart configmap example"
   course: {{ quote .Values.course }}
-  topic: {{ .Values.lesson.topic | upper }}
+  topic: {{ upper .Values.lesson.topic }}
   time: {{ now | date "2006.01.02" | quote }} 
