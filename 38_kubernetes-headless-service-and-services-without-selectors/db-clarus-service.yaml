@@ -5,4 +5,9 @@ metadata:
   labels:
     name: clarus-db-service
 spec:
+  ports:
+  - port: 3306
+    name: web
   clusterIP: None
+  selector:
+    app: clarus-db

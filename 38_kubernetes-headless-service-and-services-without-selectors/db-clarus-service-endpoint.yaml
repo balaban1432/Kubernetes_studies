@@ -4,6 +4,6 @@ metadata:
   name: clarus-db-service
 subsets:
   - addresses:
-      - ip: 10.244.0.12  # This is ip adress of database pod.
+      - ip: 10.244.0.17  # This is ip adress of database pod.
     ports:
       - port: 3306
