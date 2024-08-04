@@ -5,7 +5,7 @@
 
 **Key ve CSR oluşturma**
 ```
-$ openssl genrsa -out balaban.key 2048  # 2048 --> dosya boyutu
+$ openssl genrsa -out balaban.key 2048  # private key oluşturur. 2048 --> dosya boyutu
 
 $ openssl req -new -key balaban.key -out balaban.csr -subj "/CN=balaban1432@gmail.com/O=DevTeam"
 
