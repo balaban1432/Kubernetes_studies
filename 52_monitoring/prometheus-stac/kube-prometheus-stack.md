@@ -33,6 +33,8 @@ Mevcut çalışan podlar: ```sum by (namespace) (kube_pod_info)```
 
 Ready durumunda olmayan podlar "namespace'e göre dağılım": ```sum by (namespace) (kube_pod_status_ready{condition="false"})```
 
+node'un CPU kullanım hızındaki değişim: ```instance:node_cpu:rate:sum```
+
 * Alert manager kontrol et
 
 ```
@@ -55,3 +57,12 @@ kubectl get secret kubeprostack-grafana -n monitoring -o jsonpath="{.data.admin-
 **Grafana Dashboards:** https://grafana.com/grafana/dashboards/ 
 
 
+**delete release**
+
+```
+helm ls -n monitoring
+helm delete kubeprostack -n monitoring
+helm ls -n monitoring
+kubectl delete ns monitoring
+kubectl get ns
+```
